@@ -1,0 +1,193 @@
+iComply Business case Matrix
+Customer Success Team
+
+Lack of tools to track regulations, policies, controls and changes happening to them (via new/amendments)
+For every new regulation compliance, more budgets are utilized to review related compliance and implement, whereas in cases where some of the regulation measures are already implemented; Also, executive team does not have a view what is already in compliance vs new requirements or improvement actions
+Legal/Privacy Office, IT, Infosec
+DPO, Legal Services, Infosec consulting 
+Ability to track regulations/articles, controls and changes; Ability to maintain versions
+Ability to receive auto feeds from external firms based on changes or new
+Ability to integrate feeds from key regulation sites; pending for legal approval to intake and comply
+One platform for enterprise to manage compliance related content and manage periodic updates
+Maintain Continuous compliance
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-1
+
+Lack of tools to track enterprise-wide compliance by each entity and region based
+For global companies, need for local regulations is growing; Result is enterprise procuring various systems/tools or they are getting services from local companies but not really plugging into centralized system; Net effect is CISO or DPO does not have a clear understanding of enterprise compliance status and risk and active assessment projects; Any miss is a security risk or privacy penalties
+Legal/Privacy Office, IT, Infosec
+DPO, Legal Services, Infosec consulting 
+Ability to create enterprise org structure , associate with each local and global regulations
+Ability to link local regulations to each of local entity's by region
+Access levels for teams which are responsible for each entity and regulations 
+One platform for enterprise by legal entities and by regulations
+Visibility for executive management
+Mitigate privacy & security risk
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-2
+
+Lack of tools to conduct assessments for various needs - By product, By regulation or By policies; End-End Assessments - more actionable scalable & Measurable
+Typical need for organizations is to conduct assessments periodically with different parameters like product or regulation driven including internal or external assessments; Volume of assessments depend on enterprise systems and regulations to comply with
+Legal/Privacy Office, IT, Infosec
+DPO, Legal Services, Infosec consulting 
+Ability to create assessments at entity level; select articles which need to comply
+Ability to select controls and actions to improve based on assessment
+Ability to connect with integrated tool set to monitor and track data from other systems 
+Automated/workflow-based assessment reduces time and bring a common framework leading to collaborative effort
+Executive management , auditors and implementation team is all on one platform, improve speed to compliance 
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-3
+
+Lack of tools to generate reports and dashboards for executive management visibility; Lack of report generating tools in word/pdf for audit reports to have executive management review
+Executive management is worried about privacy and security efforts enterprise wide to keep up with security/privacy violations. At the same time, they firmly believe adhering to compliance regulations will bring enterprise to prepare for these requirements; Bringing all enterprise departments to understand compliance status and engage in change management is key to comply and mitigate risks; Need for generating meaningful audit reports to executive approvals is  growing as regulation scope is increasing
+Executive management and Managers 
+Technology/Impl partners
+Ability to use OOB Dashboards on compliance scores
+Ability to monitor progress on implementation actions
+Ability to monitor integration reports
+Ability to customize reports and dashboards
+Standard office365 templates can be loaded with preset fields from assessment records
+Ability to include documents as part of approval workflow
+Executive management visibility; Auditors and implementation team is all on one platform, improve speed to compliance
+Visibility for corporate risk management team
+Improve team productivity with standardize reports documentation 
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-4
+
+Lack of one platform to perform entire Implement actions with workflows , comply with controls, audit and attest across different regulations whether it is privacy or security; configuring own compliance score model
+Data/Information is scattered across enterprise systems, assessing each system and any improvement actions is cumbersome. Often assessments are straight forward, when it comes to implementation of actions its vey complex task to get them done across enterprise; Enterprises will take more than needed time to implementation increasing compliance timeline; Internal/external auditors spend more time on verifying evidence(audit and attest) as the actions are discretely done
+Enterprise departments, IT
+Technology/Impl partners
+Ability to create visual flows-based action types
+Ability to assign to teams/queues to implement the actions
+Ability to attest any documents for confirmation/evidence
+Ability to build approvals from managers, post implementation
+Ability to configure achievable scores based on action types 
+Huge time saver in implementation gaps, especially there are discrete global teams or different teams in same region
+Along with OOB workflows, option to configure custom workflows and assign based on action type
+Different roles will be assigned with access levels with out compromising  security and privacy 
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-5
+
+Lack of tools to publish the compliance to end customers building trust
+In recent times , there is sales drag especially technology selling companies, typical deal close time extended by 4-6 weeks; main reason is because of finding about security and privacy compliance with standard regulations by regions; End customers want to check audit reports on compliance and expect to quick return on compliance forms
+Legal/Privacy Office, IT, Infosec 
+DPO, Legal Services, Infosec consulting
+Ability to publish compliance center pages on customer web site
+Continuous maintenance to the page as compliance audit passes
+Ability to route end customers to trust center site and address their queries, able to automate reports send for requests 
+Reduce sales drag with OnDemand demonstrating compliance
+Enabling sales managers to communicate to customers on demand 
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-6
+
+Lack of integrations with monitoring tools for security and privacy and analyzing logs with AI capabilities; Lack of tools to capture cloud systems security and privacy documents and audit reports; 
+Having external tools/systems and their reports/data  in native systems & analyzing them manually will increase the compliance audit time. In today’s world of cloud transformation, 60-80 % enterprise data is on the cloud; most of them are 3rd party providers who host systems on cloud, and they take ownership partly for data security; continuous audit compliance of these vendors is of utmost importance.
+IT
+Technology partners
+Ability to integrate with security & privacy systems 
+Ability to read data and reports and extract insights using AI technologies
+Ability to store vendor repository with audit documents
+Track their compliance and change management
+Ability to perform security & privacy assessments 
+One stop system to read all connected systems data, and analyze data for compliance
+Reduce time to compliance, manage change
+Bringing cloud vendors also into enterprise compliance
+Complete visibility across enterprise including cloud providers
+Mitigate third party risks 
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-7
+
+Lack of Information privacy & security policy management and communication system; Lack of workflow - Approval system to review and approve policies and procedures with executive management
+Enterprises with new regulations compliance,  there is a need for continuous update to privacy and security policies for corporate level and technology products Initiation of this need and collaboration with teams to approve and make a policy effective is time taking task. With Privacy and security different teams in place, there is a need for increased co-ordination between these teams and executive management and with third party service firms
+Legal/Privacy Office, IT, Infosec
+DPO, Legal Services, Infosec consulting 
+Ability to manage policies in central repository
+Workflow tools to automate end-end process(new/change)
+Ability to publish to other systems for customer touch points or web front ends
+Improves team productivity 
+Reduce time to compliance
+Mitigate enterprise risk 
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-8
+
+Lack of toolset to reuse/import standard assessment templates from implementation providers or enterprise teams; Lack of toolset to create new assessment templates and drive assessments from templates; Lack of portal access for third party to manage continuous compliance(Monitoring and reporting)
+Out of box InfoComply comes with standard regulation articles and controls; often times there is a need to import new templates from external vendors/partners/customers; Any software/data services procurement in todays world starts with assessing third party risk; this process can get very complex as every vendors needs to be contacted to their Infosec and legal departments to fill the customer forms and send them via email; Lot of time is spent in onboarding a vendor losing business opportunities for both parties
+Legal/Privacy Office, IT, Infosec
+DPO, Legal Services, Infosec consulting 
+Ability to import templates with standard file format
+Ability to import out of system assessment projects information
+Load archived prior year assessment project with scores and track year-on-year improvements
+Ability to send assessment to third-party via portal access
+Ability to apply AI to gather key insights from third party documents
+Enterprise prior compliance/assessment reports all can be bought into one system/platform
+Improves visibility and traceability for Executive management & department leads
+Reduce time to compliance
+Identify and Mitigate risks 
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-9
+
+Lack of secure cloud system with  enterprise scalability  features & SAAS based fit to org size needs; Lack of integration between compliance systems and risk management platforms; Lack of Platform level integration capabilities for both call-in and call-outs
+Need for compliance system on cloud is of high importance with scalability & security from cloud provider
+Enterprise Departments, IT
+DPO, Legal Services, Infosec consulting 
+Cloud Solution/Platform InfoComply using - Compliant with most of the global regulations
+Ability to integrate both ways call-in and call-outs using standard formats
+Ability to extend /configure more objects and communicate to 3rd party systems for various use cases 
+Reduce time to compliance
+Identify and Mitigate risks 
+Enterprise Scalability, no need to procure different systems for integrations
+ROI by integrating with other compliance tools
+Problem
+Examples / Reference/ Where it is impacting/ Who has most pain point
+Impacted departments
+InfoComply Solution/ Product features
+Benefits to enterprise
+Partners – Who can assist
+Business Case-10
+

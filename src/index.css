@@ -1,0 +1,749 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* InfoComply.ai Design System - Enterprise AI Compliance & Governance Platform */
+
+@layer base {
+  /* Fixed header scroll offset */
+  html {
+    scroll-padding-top: 80px;
+  }
+  
+  :root {
+    /* Brand Colors - Enhanced for better visibility */
+    --brand: 210 65% 20%;           /* slightly lighter navy */
+    --brand-2: 214 100% 55%;        /* brighter electric blue */
+    --accent: 44 92% 65%;           /* brighter highlight yellow */
+    --success: 158 64% 55%;         /* brighter success green */
+    --danger: 0 84% 65%;            /* brighter danger red */
+    --warning: 36 100% 55%;         /* warning orange */
+    --muted: 220 15% 65%;           /* much lighter muted gray */
+    
+    /* Light Theme - Desktop Style */
+    --light-background: 0 0% 98%;        /* very light gray background */
+    --light-background-secondary: 0 0% 96%; /* light card background */
+    --light-foreground: 220 15% 15%;     /* dark text */
+    
+    --light-card: 0 0% 100%;            /* white card background */
+    --light-card-foreground: 220 15% 15%;
+    --light-popover: 0 0% 100%;
+    --light-popover-foreground: 220 15% 15%;
+    
+    --light-primary: 214 100% 50%;      /* vibrant blue */
+    --light-primary-foreground: 0 0% 100%;
+    
+    --light-secondary: 220 15% 95%;     /* very light gray */
+    --light-secondary-foreground: 220 15% 15%;
+    
+    --light-muted-bg: 220 15% 95%;      /* light muted background */
+    --light-muted-foreground: 220 15% 55%; /* medium gray text */
+    
+    --light-border: 220 15% 85%;        /* light gray borders */
+    --light-input: 0 0% 100%;           /* white input backgrounds */
+    --light-ring: 214 100% 50%;         /* focus rings */
+    
+    /* Desktop Glass Effects */
+    --light-glass-bg: 0 0% 100% / 0.95;
+    --light-glass-border: 220 15% 85% / 0.5;
+    --light-glass-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+    
+    /* Desktop Interactive States */
+    --light-hover-bg: 220 15% 97%;      /* light hover background */
+    --light-hover-border: 220 15% 80%;  /* hover border */
+    
+    /* Background System - Better contrast */
+    --background: 222 47% 8%;       /* slightly lighter dark bg */
+    --background-secondary: 220 39% 15%; /* lighter card bg */
+    --foreground: 210 40% 95%;      /* very light text */
+    
+    /* Component Colors - Enhanced contrast */
+    --card: 220 39% 15%;            /* lighter card background */
+    --card-foreground: 210 40% 95%;
+    --popover: 220 39% 12%;         /* popover background */
+    --popover-foreground: 210 40% 95%;
+    
+    --primary: 214 100% 58%;        /* brighter brand-2 blue */
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 220 39% 18%;       /* lighter secondary */
+    --secondary-foreground: 210 40% 95%;
+    
+    --muted-bg: 220 39% 18%;        /* lighter muted bg */
+    --muted-foreground: 220 15% 70%; /* much more visible muted text */
+    
+    --accent-bg: 44 92% 65%;        /* brighter highlight yellow */
+    --accent-foreground: 210 65% 15%;
+    
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 220 39% 25%;          /* more visible borders */
+    --input: 220 39% 18%;           /* lighter input backgrounds */
+    --ring: 214 100% 58%;           /* brighter focus rings */
+    
+    --radius: 1rem;                 /* rounded-2xl default */
+    
+    /* Glass Effects - More visible */
+    --glass-bg: 220 39% 15% / 0.85;
+    --glass-border: 210 40% 98% / 0.15;
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
+    
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(var(--brand)), hsl(var(--brand-2)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-2)), hsl(var(--accent)));
+    --gradient-glass: linear-gradient(135deg, hsl(var(--glass-bg)), hsl(220 39% 20% / 0.9));
+    
+    /* Interactive States */
+    --hover-bg: 220 39% 22%;        /* hover background */
+    --hover-border: 220 39% 35%;    /* hover border */
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Typography Scale */
+    --font-display: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  }
+
+  /* Light Mode Theme */
+  .light {
+    /* Background System */
+    --background: var(--light-background);
+    --background-secondary: var(--light-background-secondary);
+    --foreground: var(--light-foreground);
+    
+    /* Component Colors */
+    --card: var(--light-card);
+    --card-foreground: var(--light-card-foreground);
+    --popover: var(--light-popover);
+    --popover-foreground: var(--light-popover-foreground);
+    
+    --primary: var(--light-primary);
+    --primary-foreground: var(--light-primary-foreground);
+    
+    --secondary: var(--light-secondary);
+    --secondary-foreground: var(--light-secondary-foreground);
+    
+    --muted-bg: var(--light-muted-bg);
+    --muted-foreground: var(--light-muted-foreground);
+    
+    --accent-bg: 44 92% 65%;
+    --accent-foreground: 220 15% 15%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: var(--light-border);
+    --input: var(--light-input);
+    --ring: var(--light-ring);
+    
+    /* Glass Effects */
+    --glass-bg: var(--light-glass-bg);
+    --glass-border: var(--light-glass-border);
+    --glass-shadow: var(--light-glass-shadow);
+    
+    /* Interactive States */
+    --hover-bg: var(--light-hover-bg);
+    --hover-border: var(--light-hover-border);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: hsl(var(--foreground));
+  }
+  
+  /* Ensure proper text color inheritance */
+  .light {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  .light * {
+    border-color: hsl(var(--border));
+  }
+  
+  /* Apply to body as well */
+  body.light {
+    background: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  html.light {
+    background: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+}
+
+@layer components {
+  /* Desktop Dark Dashboard Theme */
+  .desktop-dashboard {
+    background: #1a1d29;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  .desktop-card {
+    background: #242938;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .desktop-toolbar {
+    background: #2d3748;
+    border-bottom: 1px solid #4a5568;
+  }
+  
+  .metric-card {
+    background: #2d3748;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #4a5568;
+  }
+  
+  /* Glass Effect Components - Enhanced visibility */
+  .glass {
+    background: hsl(var(--glass-bg));
+    border: 1px solid hsl(var(--glass-border));
+    backdrop-filter: blur(20px);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  /* Light mode improvements */
+  .light .glass {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Fix text colors in light mode - AGGRESSIVE */
+  .light .text-white,
+  .light .text-gray-50,
+  .light .text-gray-100,
+  .light .text-gray-200,
+  .light .text-gray-300,
+  .light .text-slate-50,
+  .light .text-slate-100,
+  .light .text-slate-200,
+  .light .text-slate-300 {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  .light .text-gray-400,
+  .light .text-gray-500,
+  .light .text-slate-400,
+  .light .text-slate-500 {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  
+  .light .text-muted-foreground {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  
+  /* Override any remaining light colors */
+  .light [class*="text-gray-"]:not(.text-gray-600):not(.text-gray-700):not(.text-gray-800):not(.text-gray-900) {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  .light [class*="text-slate-"]:not(.text-slate-600):not(.text-slate-700):not(.text-slate-800):not(.text-slate-900) {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  /* Fix backgrounds in light mode */
+  .light .bg-gray-800,
+  .light .bg-gray-900,
+  .light .bg-slate-800,
+  .light .bg-slate-900 {
+    background-color: hsl(var(--card)) !important;
+  }
+  
+  .light .bg-gray-700,
+  .light .bg-slate-700 {
+    background-color: hsl(var(--secondary)) !important;
+  }
+  
+  .light .bg-card\/20 {
+    background-color: hsl(var(--card) / 0.4) !important;
+  }
+  
+  .light .bg-background\/80,
+  .light .bg-background\/90 {
+    background-color: hsl(var(--background) / 0.95) !important;
+  }
+  
+  /* Fix borders in light mode */
+  .light .border-white\/10,
+  .light .border-white\/20,
+  .light .border-gray-700,
+  .light .border-gray-800 {
+    border-color: hsl(var(--border)) !important;
+  }
+  
+  /* Fix hover states in light mode */
+  .light .hover\:bg-white\/5:hover,
+  .light .hover\:bg-white\/10:hover {
+    background-color: hsl(var(--hover-bg)) !important;
+  }
+  
+  /* Ensure all headings are visible in light mode */
+  .light h1,
+  .light h2,
+  .light h3,
+  .light h4,
+  .light h5,
+  .light h6 {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Fix any card text in light mode */
+  .light .glass *:not(.text-brand):not(.text-brand-2):not(.text-primary):not([class*="text-"]) {
+    color: inherit;
+  }
+  
+  /* Navigation links in light mode */
+  .light nav a,
+  .light nav button {
+    color: hsl(var(--foreground));
+  }
+  
+  .light nav a:hover,
+  .light nav button:hover {
+    color: hsl(var(--primary));
+  }
+  
+  /* Fix paragraph and text elements - AGGRESSIVE */
+  .light p,
+  .light span,
+  .light div {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Make sure text inherits properly */
+  .light * {
+    color: inherit;
+  }
+  
+  /* Override at root level */
+  .light {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  .light > * {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Dropdowns and menus in light mode */
+  .light [role="menu"],
+  .light [role="menuitem"],
+  .light [class*="dropdown"],
+  .light [class*="menu"] {
+    background-color: hsl(var(--card));
+    color: hsl(var(--foreground));
+  }
+  
+  /* Buttons and interactive elements */
+  .light button:not([class*="bg-"]):not([class*="text-"]) {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Fix footer and other sections */
+  .light footer {
+    background-color: hsl(var(--card));
+    color: hsl(var(--foreground));
+  }
+  
+  .light footer a {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .light footer a:hover {
+    color: hsl(var(--primary));
+  }
+  
+  /* Forms and inputs in light mode */
+  .light input,
+  .light textarea,
+  .light select {
+    background-color: hsl(var(--input));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+  
+  .light input::placeholder,
+  .light textarea::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .light label {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Cards and sections with specific backgrounds */
+  .light .bg-\[rgb\(10\,30\,64\)\],
+  .light .bg-\[\#0a1e40\],
+  .light .bg-brand,
+  .light .bg-brand\/95,
+  .light .bg-brand\/90,
+  .light .bg-brand\/80 {
+    background-color: hsl(var(--card)) !important;
+  }
+  
+  /* Override any dark backgrounds */
+  .light [class*="bg-gray-"]:not(.bg-gray-50):not(.bg-gray-100):not(.bg-gray-200) {
+    background-color: hsl(var(--card)) !important;
+  }
+  
+  .light [class*="bg-slate-"]:not(.bg-slate-50):not(.bg-slate-100):not(.bg-slate-200) {
+    background-color: hsl(var(--card)) !important;
+  }
+  
+  /* Background with opacity */
+  .light .bg-black,
+  .light .bg-black\/50,
+  .light .bg-black\/60,
+  .light .bg-black\/70,
+  .light .bg-black\/80,
+  .light .bg-black\/90 {
+    background-color: hsl(var(--background)) !important;
+  }
+  
+  /* Badge and chip elements */
+  .light .badge,
+  .light .chip,
+  .light [class*="badge"],
+  .light [class*="chip"] {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--foreground));
+  }
+  
+  /* Lists and list items */
+  .light ul li,
+  .light ol li {
+    color: inherit;
+  }
+  
+  /* Links without specific classes */
+  .light a:not([class*="text-"]):not([class*="bg-"]) {
+    color: hsl(var(--primary));
+  }
+  
+  .light a:not([class*="text-"]):not([class*="bg-"]):hover {
+    color: hsl(var(--primary));
+    opacity: 0.8;
+  }
+  
+  /* Ensure svg icons are visible */
+  .light svg {
+    color: inherit;
+  }
+  
+  /* Strong and emphasized text */
+  .light strong,
+  .light b,
+  .light em {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Ensure all sections have proper contrast */
+  .light section {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Main and article elements */
+  .light main,
+  .light article {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Override opacity classes on text */
+  .light .opacity-50,
+  .light .opacity-60,
+  .light .opacity-70,
+  .light .opacity-80,
+  .light .opacity-90 {
+    opacity: 1 !important;
+  }
+  
+  /* Text opacity overrides */
+  .light .text-opacity-50,
+  .light .text-opacity-60,
+  .light .text-opacity-70,
+  .light .text-opacity-80,
+  .light .text-opacity-90 {
+    --tw-text-opacity: 1 !important;
+  }
+  
+  /* Ensure all content divs have proper color */
+  .light [class*="content"],
+  .light [class*="container"],
+  .light [class*="wrapper"] {
+    color: hsl(var(--foreground));
+  }
+  
+  /* All text content should be dark */
+  .light .text-foreground {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  /* Buttons with text */
+  .light button,
+  .light [role="button"] {
+    color: hsl(var(--foreground));
+  }
+  
+  .light button[class*="bg-"],
+  .light [role="button"][class*="bg-"] {
+    color: inherit;
+  }
+  
+  /* Table elements */
+  .light table,
+  .light th,
+  .light td {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Hero sections and headers */
+  .light [class*="hero"],
+  .light [class*="header"] {
+    color: hsl(var(--foreground));
+  }
+  
+  /* All card elements */
+  .light [class*="card"] {
+    background-color: hsl(var(--card));
+    color: hsl(var(--foreground));
+  }
+  
+  /* Feature and info boxes */
+  .light [class*="feature"],
+  .light [class*="info"],
+  .light [class*="box"] {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Grid and flex items */
+  .light [class*="grid"] > *,
+  .light [class*="flex"] > * {
+    color: inherit;
+  }
+  
+  /* Specific utility overrides */
+  .light .text-current {
+    color: currentColor !important;
+  }
+  
+  /* Fix any remaining white/light backgrounds that should be light theme appropriate */
+  .light .bg-white {
+    background-color: hsl(var(--card)) !important;
+  }
+  
+  .light .bg-transparent {
+    background-color: transparent !important;
+  }
+  
+  /* Dropdown content areas */
+  .light [class*="dropdown"] *,
+  .light [class*="popover"] *,
+  .light [class*="tooltip"] * {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Small text and captions */
+  .light small,
+  .light .text-xs,
+  .light .text-sm {
+    color: inherit;
+  }
+  
+  /* Code and pre elements */
+  .light code,
+  .light pre {
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--muted-bg));
+  }
+  
+  /* ULTIMATE CATCH-ALL - Make sure everything is visible */
+  .light #root {
+    color: hsl(var(--foreground));
+  }
+  
+  .light #root * {
+    color: inherit;
+  }
+  
+  /* Override any inline white text */
+  .light [style*="color: white"],
+  .light [style*="color: #fff"],
+  .light [style*="color: #ffffff"],
+  .light [style*="color:white"],
+  .light [style*="color:#fff"],
+  .light [style*="color:#ffffff"] {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  /* Override RGB white */
+  .light [style*="color: rgb(255, 255, 255)"],
+  .light [style*="color: rgb(255,255,255)"],
+  .light [style*="color:rgb(255,255,255)"] {
+    color: hsl(var(--foreground)) !important;
+  }
+  
+  /* Fix any remaining Tailwind text utilities */
+  .light .text-base,
+  .light .text-lg,
+  .light .text-xl,
+  .light .text-2xl,
+  .light .text-3xl,
+  .light .text-4xl,
+  .light .text-5xl,
+  .light .text-6xl {
+    color: inherit;
+  }
+  
+  /* Ensure proper contrast for ALL elements */
+  .light body * {
+    color: inherit;
+  }
+  
+  /* Improved Interactive Glass */
+  .glass-interactive {
+    background: hsl(var(--glass-bg));
+    border: 1px solid hsl(var(--glass-border));
+    backdrop-filter: blur(20px);
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+  
+  .glass-interactive:hover {
+    background: hsl(var(--hover-bg));
+    border-color: hsl(var(--hover-border));
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.6);
+  }
+  
+  .light .glass-interactive:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Clickable Cards */
+  .card-clickable {
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-clickable::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, hsl(var(--brand-2) / 0.05), hsl(var(--accent) / 0.05));
+    opacity: 0;
+    transition: var(--transition-smooth);
+  }
+  
+  .card-clickable:hover::before {
+    opacity: 1;
+  }
+  
+  .card-clickable:hover {
+    transform: translateY(-4px);
+    border-color: hsl(var(--brand-2) / 0.3);
+    box-shadow: 0 20px 60px -10px hsl(var(--brand-2) / 0.2);
+  }
+  
+  /* Gradient Backgrounds */
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-glass {
+    background: var(--gradient-glass);
+  }
+  
+  /* Interactive Elements */
+  .interactive {
+    transition: var(--transition-smooth);
+    cursor: pointer;
+  }
+  
+  .interactive:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Typography */
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .light .text-gradient {
+    background: linear-gradient(135deg, hsl(214 100% 45%), hsl(214 100% 55%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Improved Button States */
+  .btn-hover-glow:hover {
+    box-shadow: 0 0 20px hsl(var(--brand-2) / 0.5);
+  }
+  
+  /* Visual Indicators for Interactive Elements */
+  .has-tooltip {
+    position: relative;
+  }
+  
+  .has-tooltip::after {
+    content: 'Click to explore';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(var(--popover));
+    color: hsl(var(--popover-foreground));
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-fast);
+    z-index: 50;
+  }
+  
+  .has-tooltip:hover::after {
+    opacity: 1;
+  }
+}
