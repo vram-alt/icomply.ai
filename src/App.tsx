@@ -16,7 +16,7 @@ import AuditReadiness from "./pages/services/AuditReadiness";
 import Partners from "./pages/Partners";
 import StateOfEnterprise from "./pages/resources/StateOfEnterprise";
 import Contact from "./pages/Contact";
-import VideoPresentation from "./pages/VideoPresentation"; // Demo only - not pushed to git
+//import VideoPresentation from "./pages/VideoPresentation"; // Demo only - not pushed to git
 // Managed Services Use Cases
 import GuardrailMonitoring from "./pages/managed-services/GuardrailMonitoring";
 import OperationalChecklist from "./pages/managed-services/OperationalChecklist";
@@ -47,7 +47,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Original />} />
           <Route path="/new-index" element={<Index />} />
-          <Route path="/video-presentation" element={<VideoPresentation />} /> {/* Demo only - not pushed to git */}
+          {/* <Route path="/video-presentation" element={<VideoPresentation />} /> */}
+          {/* Demo only - not pushed to git */}
           <Route path="/services" element={<Services />} />
           <Route path="/tools/appsbee" element={<AppsBee />} />
             <Route path="/tools/icomply" element={<IComply />} />
