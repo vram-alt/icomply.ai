@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from "@emailjs/browser";
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -24,29 +25,44 @@ const ContactForm = ({ className }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setIsSubmitting(false);
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      role: formData.role,
+      message: formData.message,
+      serviceInterest: formData.serviceInterest.join(", "),
+    };
+
+    try {
+      await emailjs.send(
+        'service_c2qz36w',
+        'template_wjc02w4',
+        templateParams,
+        'EshlqpZ1b4Shzy4L1'
+      );
+
       setSubmitSuccess(true);
-      
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          role: '',
-          message: '',
-          serviceInterest: []
-        });
-        setSubmitSuccess(false);
-      }, 3000);
-    }, 1500);
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        role: "",
+        message: "",
+        serviceInterest: [],
+      });
+
+      setTimeout(() => setSubmitSuccess(false), 3000);
+    } catch (err) {
+      console.error("Email send error:", err);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
