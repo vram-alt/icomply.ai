@@ -29,12 +29,11 @@ const ContactForm = ({ className }: ContactFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const today = new Date().toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-
+const today = new Date().toLocaleDateString("en-US", {
+  month: "long",
+  day: "2-digit",
+  year: "numeric",
+});
     const templateParams = {
       name: formData.name,
       email: formData.email,
