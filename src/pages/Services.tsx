@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import ContactForm from '@/components/ContactForm';
 import { Badge } from '@/components/ui/badge';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
@@ -186,20 +187,20 @@ ${plan?.backlog.map(item => `• ${item}`).join('\n')}
 
   return (
     <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold mb-4">Assessment Planner</h3>
+      <div className="mb-8 text-center">
+        <h3 className="mb-4 text-2xl font-bold">Assessment Planner</h3>
         <p className="text-gray-300">Configure your assessment scope and get an instant timeline and team estimate.</p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid gap-8 lg:grid-cols-2">
         {/* Input Panel */}
-        <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+        <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
           <CardHeader>
             <CardTitle>Scope Configuration</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2">Industry</label>
+              <label className="mb-2 block text-sm font-medium">Industry</label>
               <Select value={scope.industry} onValueChange={(value) => setScope({...scope, industry: value})}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select industry" />
@@ -213,7 +214,7 @@ ${plan?.backlog.map(item => `• ${item}`).join('\n')}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">
+              <label className="mb-2 block text-sm font-medium">
                 Regions: {scope.regions}
               </label>
               <Slider
@@ -227,7 +228,7 @@ ${plan?.backlog.map(item => `• ${item}`).join('\n')}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Frameworks</label>
+              <label className="mb-2 block text-sm font-medium">Frameworks</label>
               <div className="grid grid-cols-2 gap-2">
                 {frameworks.map(framework => (
                   <div key={framework} className="flex items-center space-x-2">
@@ -248,7 +249,7 @@ ${plan?.backlog.map(item => `• ${item}`).join('\n')}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">
+              <label className="mb-2 block text-sm font-medium">
                 AI Agents/Apps: {scope.agents}
               </label>
               <Slider
@@ -262,7 +263,7 @@ ${plan?.backlog.map(item => `• ${item}`).join('\n')}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Data Sensitivity</label>
+              <label className="mb-2 block text-sm font-medium">Data Sensitivity</label>
               <Select value={scope.dataSensitivity} onValueChange={(value: 'Low' | 'Medium' | 'High') => setScope({...scope, dataSensitivity: value})}>
                 <SelectTrigger>
                   <SelectValue />
@@ -287,17 +288,17 @@ ${plan?.backlog.map(item => `• ${item}`).join('\n')}
 
         {/* Results Panel */}
         {plan && (
-          <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+          <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
             <CardHeader>
               <CardTitle>Assessment Plan</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-[#F47F21]/10 rounded-lg">
+                <div className="rounded-lg bg-[#F47F21]/10 p-4 text-center">
                   <div className="text-2xl font-bold text-[#F47F21]">{plan.weeks}</div>
                   <div className="text-sm text-gray-300">Weeks</div>
                 </div>
-                <div className="text-center p-4 bg-blue-500/10 rounded-lg">
+                <div className="rounded-lg bg-blue-500/10 p-4 text-center">
                   <div className="text-2xl font-bold text-blue-400">
                     {plan.team.consultant + plan.team.sme + plan.team.pm}
                   </div>
@@ -306,7 +307,7 @@ ${plan?.backlog.map(item => `• ${item}`).join('\n')}
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Team Composition</h4>
+                <h4 className="mb-2 font-semibold">Team Composition</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Consultant</span>
@@ -324,24 +325,24 @@ ${plan?.backlog.map(item => `• ${item}`).join('\n')}
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Key Deliverables</h4>
+                <h4 className="mb-2 font-semibold">Key Deliverables</h4>
                 <ul className="space-y-1">
                   {plan.backlog.map((item, index) => (
                     <li key={index} className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <CheckCircle className="h-4 w-4 text-green-400" />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="p-4 bg-blue-500/10 rounded-lg">
-                <h4 className="font-semibold mb-2">Pilot Suggestion</h4>
+              <div className="rounded-lg bg-blue-500/10 p-4">
+                <h4 className="mb-2 font-semibold">Pilot Suggestion</h4>
                 <p className="text-sm text-gray-300">{plan.pilotSuggestion}</p>
               </div>
 
               <Button onClick={exportBrief} className="w-full" variant="outline">
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="mr-2 h-4 w-4" />
                 Export Brief
               </Button>
             </CardContent>
@@ -448,20 +449,20 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
 
   return (
     <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold mb-4">Service Level Composer</h3>
+      <div className="mb-8 text-center">
+        <h3 className="mb-4 text-2xl font-bold">Service Level Composer</h3>
         <p className="text-gray-300">Design your managed governance service with custom SLAs and coverage.</p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid gap-8 lg:grid-cols-2">
         {/* Configuration Panel */}
-        <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+        <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
           <CardHeader>
             <CardTitle>Service Configuration</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2">
+              <label className="mb-2 block text-sm font-medium">
                 Regions: {input.regions}
               </label>
               <Slider
@@ -475,7 +476,7 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Coverage Hours</label>
+              <label className="mb-2 block text-sm font-medium">Coverage Hours</label>
               <Select value={input.coverage} onValueChange={(value: '8x5' | '16x5' | '24x7') => setInput({...input, coverage: value})}>
                 <SelectTrigger>
                   <SelectValue />
@@ -492,7 +493,7 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
               <h4 className="font-semibold">Service Level Agreements</h4>
               
               <div>
-                <label className="block text-sm font-medium mb-2">Incident Triage</label>
+                <label className="mb-2 block text-sm font-medium">Incident Triage</label>
                 <Select value={input.sla.triage} onValueChange={(value: '4h' | '8h' | 'NBD') => setInput({...input, sla: {...input.sla, triage: value}})}>
                   <SelectTrigger>
                     <SelectValue />
@@ -506,7 +507,7 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Change Approval</label>
+                <label className="mb-2 block text-sm font-medium">Change Approval</label>
                 <Select value={input.sla.change} onValueChange={(value: '24h' | '48h' | 'custom') => setInput({...input, sla: {...input.sla, change: value}})}>
                   <SelectTrigger>
                     <SelectValue />
@@ -520,7 +521,7 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">DSAR Response</label>
+                <label className="mb-2 block text-sm font-medium">DSAR Response</label>
                 <Select value={input.sla.dsar} onValueChange={(value: '1d' | '3d' | '5d') => setInput({...input, sla: {...input.sla, dsar: value}})}>
                   <SelectTrigger>
                     <SelectValue />
@@ -534,7 +535,7 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Reporting Cadence</label>
+                <label className="mb-2 block text-sm font-medium">Reporting Cadence</label>
                 <Select value={input.sla.reporting} onValueChange={(value: 'weekly' | 'monthly' | 'quarterly') => setInput({...input, sla: {...input.sla, reporting: value}})}>
                   <SelectTrigger>
                     <SelectValue />
@@ -559,24 +560,24 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
 
         {/* Results Panel */}
         {plan && (
-          <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+          <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
             <CardHeader>
               <CardTitle>Service Plan</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-[#F47F21]/10 rounded-lg">
+                <div className="rounded-lg bg-[#F47F21]/10 p-4 text-center">
                   <div className="text-2xl font-bold text-[#F47F21]">{plan.scoreTarget}%</div>
                   <div className="text-sm text-gray-300">Target Score</div>
                 </div>
-                <div className="text-center p-4 bg-green-500/10 rounded-lg">
+                <div className="rounded-lg bg-green-500/10 p-4 text-center">
                   <div className="text-2xl font-bold text-green-400">{plan.monthlyEffort}</div>
                   <div className="text-sm text-gray-300">Monthly Effort</div>
                 </div>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Team Roster (FTE)</h4>
+                <h4 className="mb-2 font-semibold">Team Roster (FTE)</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>HITL Operators</span>
@@ -598,11 +599,11 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Escalation Tree</h4>
+                <h4 className="mb-2 font-semibold">Escalation Tree</h4>
                 <ul className="space-y-1">
                   {plan.escalationTree.map((level, index) => (
                     <li key={index} className="flex items-center space-x-2">
-                      <div className="w-6 h-6 rounded-full bg-[#F47F21]/20 flex items-center justify-center text-xs">
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#F47F21]/20 text-xs">
                         {index + 1}
                       </div>
                       <span className="text-sm">{level}</span>
@@ -612,7 +613,7 @@ ${plan?.escalationTree.map((level, i) => `${i + 1}. ${level}`).join('\n')}
               </div>
 
               <Button onClick={exportRunbook} className="w-full" variant="outline">
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="mr-2 h-4 w-4" />
                 Generate Runbook Excerpt
               </Button>
             </CardContent>
@@ -751,20 +752,20 @@ NOTE: This is a demo manifest. Actual evidence pack would contain the referenced
 
   return (
     <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold mb-4">Evidence Pack Builder</h3>
+      <div className="mb-8 text-center">
+        <h3 className="mb-4 text-2xl font-bold">Evidence Pack Builder</h3>
         <p className="text-gray-300">Select framework and controls to generate an audit evidence pack manifest.</p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid gap-8 lg:grid-cols-2">
         {/* Configuration Panel */}
-        <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+        <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
           <CardHeader>
             <CardTitle>Framework & Controls</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2">Framework</label>
+              <label className="mb-2 block text-sm font-medium">Framework</label>
               <Select value={selectedFramework} onValueChange={setSelectedFramework}>
                 <SelectTrigger>
                   <SelectValue placeholder="Select framework" />
@@ -779,8 +780,8 @@ NOTE: This is a demo manifest. Actual evidence pack would contain the referenced
 
             {selectedFramework && (
               <div>
-                <label className="block text-sm font-medium mb-2">Controls</label>
-                <div className="space-y-2 max-h-64 overflow-y-auto">
+                <label className="mb-2 block text-sm font-medium">Controls</label>
+                <div className="max-h-64 space-y-2 overflow-y-auto">
                   {frameworks[selectedFramework as keyof typeof frameworks].controls.map(control => (
                     <div key={control} className="flex items-center space-x-2">
                       <Checkbox
@@ -798,7 +799,7 @@ NOTE: This is a demo manifest. Actual evidence pack would contain the referenced
                   ))}
                 </div>
                 
-                <div className="flex space-x-2 mt-4">
+                <div className="mt-4 flex space-x-2">
                   <Button 
                     variant="outline" 
                     size="sm"
@@ -829,31 +830,31 @@ NOTE: This is a demo manifest. Actual evidence pack would contain the referenced
 
         {/* Results Panel */}
         {packManifest && (
-          <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+          <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
             <CardHeader>
               <CardTitle>Evidence Pack Manifest</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-3 gap-4">
-                <div className="text-center p-3 bg-blue-500/10 rounded-lg">
+                <div className="rounded-lg bg-blue-500/10 p-3 text-center">
                   <div className="text-xl font-bold text-blue-400">{packManifest.summary.totalControls}</div>
                   <div className="text-xs text-gray-300">Total</div>
                 </div>
-                <div className="text-center p-3 bg-green-500/10 rounded-lg">
+                <div className="rounded-lg bg-green-500/10 p-3 text-center">
                   <div className="text-xl font-bold text-green-400">{packManifest.summary.completeControls}</div>
                   <div className="text-xs text-gray-300">Complete</div>
                 </div>
-                <div className="text-center p-3 bg-yellow-500/10 rounded-lg">
+                <div className="rounded-lg bg-yellow-500/10 p-3 text-center">
                   <div className="text-xl font-bold text-yellow-400">{packManifest.summary.inProgressControls}</div>
                   <div className="text-xs text-gray-300">In Progress</div>
                 </div>
               </div>
 
               <div>
-                <h4 className="font-semibold mb-2">Control Status</h4>
-                <div className="space-y-2 max-h-48 overflow-y-auto">
+                <h4 className="mb-2 font-semibold">Control Status</h4>
+                <div className="max-h-48 space-y-2 overflow-y-auto">
                   {packManifest.controls.map((control: any, index: number) => (
-                    <div key={index} className="flex items-center justify-between p-2 bg-white/5 rounded">
+                    <div key={index} className="flex items-center justify-between rounded bg-white/5 p-2">
                       <span className="text-sm">{control.id}</span>
                       <Badge variant={control.status === 'Complete' ? 'default' : 'secondary'}>
                         {control.status}
@@ -863,9 +864,9 @@ NOTE: This is a demo manifest. Actual evidence pack would contain the referenced
                 </div>
               </div>
 
-              <div className="p-4 bg-blue-500/10 rounded-lg">
-                <h4 className="font-semibold mb-2">Standard Evidence Types</h4>
-                <ul className="text-sm space-y-1">
+              <div className="rounded-lg bg-blue-500/10 p-4">
+                <h4 className="mb-2 font-semibold">Standard Evidence Types</h4>
+                <ul className="space-y-1 text-sm">
                   <li>• Policy documents & procedures</li>
                   <li>• Implementation guides & runbooks</li>
                   <li>• Control testing results & screenshots</li>
@@ -875,7 +876,7 @@ NOTE: This is a demo manifest. Actual evidence pack would contain the referenced
               </div>
 
               <Button onClick={createZipMock} className="w-full" variant="outline">
-                <Download className="w-4 h-4 mr-2" />
+                <Download className="mr-2 h-4 w-4" />
                 Create ZIP Mock
               </Button>
             </CardContent>
@@ -999,12 +1000,12 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
 
   return (
     <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold mb-4">Scoping & Pricing</h3>
+      <div className="mb-8 text-center">
+        <h3 className="mb-4 text-2xl font-bold">Scoping & Pricing</h3>
         <p className="text-gray-300">Estimate timeline, team, and price band in minutes — then book a workshop.</p>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid gap-8 lg:grid-cols-3">
         {/* Configuration Panel */}
         <div className="lg:col-span-2">
           <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -1015,14 +1016,14 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
             </TabsList>
 
             <TabsContent value="scope" className="space-y-6">
-              <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+              <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
                 <CardHeader>
                   <CardTitle>Project Scope</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">Industry</label>
+                      <label className="mb-2 block text-sm font-medium">Industry</label>
                       <Select value={config.industry} onValueChange={(value) => setConfig({...config, industry: value})}>
                         <SelectTrigger>
                           <SelectValue placeholder="Select industry" />
@@ -1038,7 +1039,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2">Data Sensitivity</label>
+                      <label className="mb-2 block text-sm font-medium">Data Sensitivity</label>
                       <Select value={config.dataSensitivity} onValueChange={(value: 'Low' | 'Medium' | 'High') => setConfig({...config, dataSensitivity: value})}>
                         <SelectTrigger>
                           <SelectValue />
@@ -1053,7 +1054,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="mb-2 block text-sm font-medium">
                       Regions: {config.regions}
                     </label>
                     <Slider
@@ -1067,7 +1068,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="mb-2 block text-sm font-medium">
                       AI Agents/Apps: {config.agents}
                     </label>
                     <Slider
@@ -1081,7 +1082,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Frameworks</label>
+                    <label className="mb-2 block text-sm font-medium">Frameworks</label>
                     <div className="grid grid-cols-2 gap-2">
                       {['GDPR', 'CCPA', 'EU AI Act', 'ISO 27001', 'SOC 2', 'NIST'].map(framework => (
                         <div key={framework} className="flex items-center space-x-2">
@@ -1102,7 +1103,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Integrations</label>
+                    <label className="mb-2 block text-sm font-medium">Integrations</label>
                     <div className="grid grid-cols-2 gap-2">
                       {integrations.slice(0, 6).map(integration => (
                         <div key={integration} className="flex items-center space-x-2">
@@ -1126,13 +1127,13 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
             </TabsContent>
 
             <TabsContent value="operating" className="space-y-6">
-              <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+              <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
                 <CardHeader>
                   <CardTitle>Operating Model</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Coverage Hours</label>
+                    <label className="mb-2 block text-sm font-medium">Coverage Hours</label>
                     <Select value={config.coverage} onValueChange={(value: '8x5' | '16x5' | '24x7') => setConfig({...config, coverage: value})}>
                       <SelectTrigger>
                         <SelectValue />
@@ -1147,7 +1148,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium mb-2">Incident Triage</label>
+                      <label className="mb-2 block text-sm font-medium">Incident Triage</label>
                       <Select value={config.sla.triage} onValueChange={(value: '4h' | '8h' | 'NBD') => setConfig({...config, sla: {...config.sla, triage: value}})}>
                         <SelectTrigger>
                           <SelectValue />
@@ -1161,7 +1162,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2">DSAR Response</label>
+                      <label className="mb-2 block text-sm font-medium">DSAR Response</label>
                       <Select value={config.sla.dsar} onValueChange={(value: '1d' | '3d' | '5d') => setConfig({...config, sla: {...config.sla, dsar: value}})}>
                         <SelectTrigger>
                           <SelectValue />
@@ -1176,7 +1177,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium mb-2">Reporting Cadence</label>
+                    <label className="mb-2 block text-sm font-medium">Reporting Cadence</label>
                     <Select value={config.sla.reporting} onValueChange={(value: 'weekly' | 'monthly' | 'quarterly') => setConfig({...config, sla: {...config.sla, reporting: value}})}>
                       <SelectTrigger>
                         <SelectValue />
@@ -1193,13 +1194,13 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
             </TabsContent>
 
             <TabsContent value="timeline" className="space-y-6">
-              <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+              <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
                 <CardHeader>
                   <CardTitle>Timeline & Deadlines</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Target Start Date</label>
+                    <label className="mb-2 block text-sm font-medium">Target Start Date</label>
                     <Input
                       type="date"
                       value={config.deadline || ''}
@@ -1207,9 +1208,9 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                     />
                   </div>
 
-                  <div className="p-4 bg-blue-500/10 rounded-lg">
-                    <h4 className="font-semibold mb-2">Typical Project Phases</h4>
-                    <ul className="text-sm space-y-1">
+                  <div className="rounded-lg bg-blue-500/10 p-4">
+                    <h4 className="mb-2 font-semibold">Typical Project Phases</h4>
+                    <ul className="space-y-1 text-sm">
                       <li>• Discovery & Planning (2 weeks)</li>
                       <li>• Implementation (4-8 weeks)</li>
                       <li>• Testing & Validation (1-2 weeks)</li>
@@ -1235,18 +1236,18 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
         {/* Results Panel */}
         <div>
           {estimate && (
-            <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10 sticky top-6">
+            <Card className="sticky top-6 border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
               <CardHeader>
                 <CardTitle>Project Estimate</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="text-center p-4 bg-[#F47F21]/10 rounded-lg">
+                <div className="rounded-lg bg-[#F47F21]/10 p-4 text-center">
                   <div className="text-2xl font-bold text-[#F47F21]">{estimate.priceBand}</div>
                   <div className="text-sm text-gray-300">Price Band</div>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-2">Timeline</h4>
+                  <h4 className="mb-2 font-semibold">Timeline</h4>
                   <div className="space-y-2">
                     {estimate.timeline.map((phase, index) => (
                       <div key={index} className="flex justify-between text-sm">
@@ -1258,7 +1259,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-2">Team & Hours</h4>
+                  <h4 className="mb-2 font-semibold">Team & Hours</h4>
                   <div className="space-y-2">
                     {estimate.team.map((member, index) => (
                       <div key={index} className="flex justify-between text-sm">
@@ -1270,11 +1271,11 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-2">Key Assumptions</h4>
-                  <ul className="text-sm space-y-1">
+                  <h4 className="mb-2 font-semibold">Key Assumptions</h4>
+                  <ul className="space-y-1 text-sm">
                     {estimate.assumptions.slice(0, 3).map((assumption, index) => (
                       <li key={index} className="flex items-start space-x-2">
-                        <div className="w-1 h-1 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
+                        <div className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-gray-400" />
                         <span>{assumption}</span>
                       </li>
                     ))}
@@ -1287,7 +1288,7 @@ NOTE: This is a preliminary estimate. Final scope and pricing subject to discove
                     variant="outline"
                     onClick={onContactClick}
                   >
-                    <Mail className="w-4 h-4 mr-2" />
+                    <Mail className="mr-2 h-4 w-4" />
                     Contact Us for Details
                   </Button>
                 </div>
@@ -1336,7 +1337,7 @@ const Services = () => {
       <Navigation />
       
       {/* Local Navigation */}
-      <div className="bg-[#0F172A]/30 border-b border-white/5 sticky top-0 z-40">
+      <div className="sticky top-0 z-40 border-b border-white/5 bg-[#0F172A]/30">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex space-x-8 overflow-x-auto py-4">
             {sections.map(section => (
@@ -1357,47 +1358,47 @@ const Services = () => {
       </div>
 
       {/* Hero Section */}
-      <section id="overview" className="pt-20 pb-16 relative overflow-hidden">
+      <section id="overview" className="relative overflow-hidden pb-16 pt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-[#F47F21]/5 via-transparent to-[#FF6B35]/5" />
         
-        <div className="container mx-auto px-4 sm:px-6 relative">
+        <div className="container relative mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center space-y-8"
+            className="space-y-8 text-center"
           >
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-5xl font-bold leading-tight lg:text-6xl">
                 Expert hands for your{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F47F21] to-[#FF6B35]">
+                <span className="bg-gradient-to-r from-[#F47F21] to-[#FF6B35] bg-clip-text text-transparent">
                   AI, privacy & security
                 </span>{' '}
                 programs.
               </h1>
               
-              <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-300">
                 From first assessment to continuous governance, our team brings frameworks, workflows, 
                 and humans-in-the-loop to keep you compliant and confident.
               </p>
 
-              <div className="flex flex-wrap gap-3 justify-center">
-                <Badge variant="secondary" className="bg-[#F47F21]/10 text-[#F47F21] border-[#F47F21]/20">
+              <div className="flex flex-wrap justify-center gap-3">
+                <Badge variant="secondary" className="border-[#F47F21]/20 bg-[#F47F21]/10 text-[#F47F21]">
                   Advisory & Architecture
                 </Badge>
-                <Badge variant="secondary" className="bg-[#F47F21]/10 text-[#F47F21] border-[#F47F21]/20">
+                <Badge variant="secondary" className="border-[#F47F21]/20 bg-[#F47F21]/10 text-[#F47F21]">
                   Managed Governance
                 </Badge>
-                <Badge variant="secondary" className="bg-[#F47F21]/10 text-[#F47F21] border-[#F47F21]/20">
+                <Badge variant="secondary" className="border-[#F47F21]/20 bg-[#F47F21]/10 text-[#F47F21]">
                   Audit Readiness
                 </Badge>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button 
                 size="lg" 
-                className="bg-[#F47F21] hover:bg-[#F47F21]/90 text-white px-8 py-4 text-lg font-semibold"
+                className="bg-[#F47F21] px-8 py-4 text-lg font-semibold text-white hover:bg-[#F47F21]/90"
                 onClick={() => setShowContactForm(true)}
               >
                 Talk to an expert
@@ -1405,7 +1406,7 @@ const Services = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-[#F47F21] text-[#F47F21] hover:bg-[#F47F21] hover:text-white px-8 py-4 text-lg font-semibold"
+                className="border-[#F47F21] px-8 py-4 text-lg font-semibold text-[#F47F21] hover:bg-[#F47F21] hover:text-white"
                 onClick={() => setActiveSection('scoping')}
               >
                 Scope my project
@@ -1416,19 +1417,19 @@ const Services = () => {
       </section>
 
       {/* What You Get */}
-      <section className="py-12 sm:py-16 bg-[#0F172A]/30">
+      <section className="bg-[#0F172A]/30 py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-3">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-[#F47F21]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="w-8 h-8 text-[#F47F21]" />
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#F47F21]/10">
+                <Zap className="h-8 w-8 text-[#F47F21]" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Speed</h3>
+              <h3 className="mb-2 text-xl font-bold">Speed</h3>
               <p className="text-gray-300">Weeks to first results, not months.</p>
             </motion.div>
 
@@ -1439,10 +1440,10 @@ const Services = () => {
               transition={{ delay: 0.1 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-[#F47F21]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-[#F47F21]" />
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#F47F21]/10">
+                <Shield className="h-8 w-8 text-[#F47F21]" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Assurance</h3>
+              <h3 className="mb-2 text-xl font-bold">Assurance</h3>
               <p className="text-gray-300">Evidence, SLAs, and audit-ready artifacts.</p>
             </motion.div>
 
@@ -1453,10 +1454,10 @@ const Services = () => {
               transition={{ delay: 0.2 }}
               className="text-center"
             >
-              <div className="w-16 h-16 bg-[#F47F21]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <RefreshCw className="w-8 h-8 text-[#F47F21]" />
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#F47F21]/10">
+                <RefreshCw className="h-8 w-8 text-[#F47F21]" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Continuity</h3>
+              <h3 className="mb-2 text-xl font-bold">Continuity</h3>
               <p className="text-gray-300">Operating model + change control that sticks.</p>
             </motion.div>
           </div>
@@ -1488,19 +1489,19 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="mb-12 text-center"
           >
-            <h2 className="text-4xl font-bold mb-4">Assessment (Advisory & Architecture)</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className="mb-4 text-4xl font-bold">Assessment (Advisory & Architecture)</h2>
+            <p className="mx-auto max-w-3xl text-xl text-gray-300">
               A structured, 4–6 week engagement to map your current state, gaps, and an executable roadmap.
             </p>
-            <p className="text-gray-400 mt-2">
+            <p className="mt-2 text-gray-400">
               <strong>Who:</strong> Privacy/GRC leaders, AI/Platform owners, Legal, Data/IT.
             </p>
           </motion.div>
 
           {/* Deliverables */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               'Current-state inventory (agents/apps/dataflows/vendors)',
               'Gap analysis vs chosen frameworks (GDPR/CCPA/LGPD, EU AI Act, ISO/IEC 42001, ISO 27001/NIST)',
@@ -1508,9 +1509,9 @@ const Services = () => {
               'Target operating model (roles, RACI, cadence)',
               'Quick-start workflows (assessments, DSAR, breaches, change control)'
             ].map((deliverable, index) => (
-              <Card key={index} className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+              <Card key={index} className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
                 <CardContent className="p-6">
-                  <CheckCircle className="w-6 h-6 text-green-400 mb-3" />
+                  <CheckCircle className="mb-3 h-6 w-6 text-green-400" />
                   <p className="text-sm">{deliverable}</p>
                 </CardContent>
               </Card>
@@ -1519,7 +1520,7 @@ const Services = () => {
 
           {/* Timeline */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-center">Typical Timeline</h3>
+            <h3 className="mb-6 text-center text-2xl font-bold">Typical Timeline</h3>
             <div className="flex flex-wrap justify-center gap-4">
               {[
                 { phase: 'Week 1', activity: 'Discover' },
@@ -1528,11 +1529,11 @@ const Services = () => {
                 { phase: 'Week 5-6', activity: 'Pilot' }
               ].map((item, index) => (
                 <div key={index} className="flex items-center">
-                  <div className="text-center p-4 bg-[#F47F21]/10 rounded-lg">
+                  <div className="rounded-lg bg-[#F47F21]/10 p-4 text-center">
                     <div className="font-bold text-[#F47F21]">{item.phase}</div>
                     <div className="text-sm text-gray-300">{item.activity}</div>
                   </div>
-                  {index < 3 && <ArrowRight className="w-6 h-6 text-gray-400 mx-2" />}
+                  {index < 3 && <ArrowRight className="mx-2 h-6 w-6 text-gray-400" />}
                 </div>
               ))}
             </div>
@@ -1544,25 +1545,25 @@ const Services = () => {
       </section>
 
       {/* Managed Governance Service */}
-      <section id="managed" className="py-12 sm:py-16 md:py-20 bg-[#0F172A]/30">
+      <section id="managed" className="bg-[#0F172A]/30 py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="mb-12 text-center"
           >
-            <h2 className="text-4xl font-bold mb-4">Managed Governance</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className="mb-4 text-4xl font-bold">Managed Governance</h2>
+            <p className="mx-auto max-w-3xl text-xl text-gray-300">
               A joint team (automations + humans) operating your AI & compliance controls 24/7.
             </p>
-            <p className="text-gray-400 mt-2">
+            <p className="mt-2 text-gray-400">
               <strong>Who:</strong> Organizations scaling agents/systems across units or regions.
             </p>
           </motion.div>
 
           {/* What We Run */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               { icon: Shield, title: 'Policies & Guardrails', desc: 'AppsBee with HITL queues' },
               { icon: GitBranch, title: 'Change Management', desc: 'Models/prompts/tools with approvals & canaries' },
@@ -1570,10 +1571,10 @@ const Services = () => {
               { icon: FileText, title: 'Privacy Ops', desc: 'DSAR, consent, RoPA & breach workflows (iComply)' },
               { icon: Award, title: 'Evidence Capture', desc: 'Monthly compliance score and audit packs' }
             ].map((item, index) => (
-              <Card key={index} className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+              <Card key={index} className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
                 <CardContent className="p-6">
-                  <item.icon className="w-8 h-8 text-[#F47F21] mb-3" />
-                  <h4 className="font-bold mb-2">{item.title}</h4>
+                  <item.icon className="mb-3 h-8 w-8 text-[#F47F21]" />
+                  <h4 className="mb-2 font-bold">{item.title}</h4>
                   <p className="text-sm text-gray-300">{item.desc}</p>
                 </CardContent>
               </Card>
@@ -1592,19 +1593,19 @@ const Services = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="mb-12 text-center"
           >
-            <h2 className="text-4xl font-bold mb-4">Audit Readiness</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className="mb-4 text-4xl font-bold">Audit Readiness</h2>
+            <p className="mx-auto max-w-3xl text-xl text-gray-300">
               Prepare, package, and pass audits with confidence.
             </p>
-            <p className="text-gray-400 mt-2">
+            <p className="mt-2 text-gray-400">
               <strong>Who:</strong> Teams facing regulator reviews, customer security questionnaires, or cert audits.
             </p>
           </motion.div>
 
           {/* Deliverables */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               'Evidence collection & gap closure plan',
               'Control testing snapshots',
@@ -1612,9 +1613,9 @@ const Services = () => {
               'Reporting: executive pack + detailed workpapers',
               'Trust center publishing (optional)'
             ].map((deliverable, index) => (
-              <Card key={index} className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+              <Card key={index} className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
                 <CardContent className="p-6">
-                  <Award className="w-6 h-6 text-[#F47F21] mb-3" />
+                  <Award className="mb-3 h-6 w-6 text-[#F47F21]" />
                   <p className="text-sm">{deliverable}</p>
                 </CardContent>
               </Card>
@@ -1627,40 +1628,40 @@ const Services = () => {
       </section>
 
       {/* Cross-Product Value */}
-      <section className="py-12 sm:py-16 bg-[#0F172A]/30">
+      <section className="bg-[#0F172A]/30 py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center">
-            <h3 className="text-2xl font-bold mb-6">Complete Governance Loop</h3>
-            <div className="flex items-center justify-center space-x-8 mb-6">
+            <h3 className="mb-6 text-2xl font-bold">Complete Governance Loop</h3>
+            <div className="mb-6 flex items-center justify-center space-x-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#F47F21]/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Bot className="w-8 h-8 text-[#F47F21]" />
+                <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-[#F47F21]/10">
+                  <Bot className="h-8 w-8 text-[#F47F21]" />
                 </div>
                 <div className="font-bold">AppsBee</div>
                 <div className="text-sm text-gray-400">Enforces</div>
               </div>
-              <ArrowRight className="w-6 h-6 text-gray-400" />
+              <ArrowRight className="h-6 w-6 text-gray-400" />
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <FileText className="w-8 h-8 text-blue-400" />
+                <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500/10">
+                  <FileText className="h-8 w-8 text-blue-400" />
                 </div>
                 <div className="font-bold">iComply</div>
                 <div className="text-sm text-gray-400">Proves</div>
               </div>
-              <ArrowRight className="w-6 h-6 text-gray-400" />
+              <ArrowRight className="h-6 w-6 text-gray-400" />
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Database className="w-8 h-8 text-green-400" />
+                <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10">
+                  <Database className="h-8 w-8 text-green-400" />
                 </div>
                 <div className="font-bold">Your Stack</div>
                 <div className="text-sm text-gray-400">Integrates</div>
               </div>
             </div>
-            <p className="text-gray-300 mb-6">
+            <p className="mb-6 text-gray-300">
               AppsBee enforces guardrails and change control; iComply proves it with assessments, records, and reports. 
               Adopt either — or both for a closed loop.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button variant="outline" className="border-[#F47F21] text-[#F47F21] hover:bg-[#F47F21] hover:text-white">
                 Explore AppsBee
               </Button>
@@ -1680,27 +1681,27 @@ const Services = () => {
       </section>
 
       {/* Proof & Results */}
-      <section className="py-12 sm:py-16 bg-[#0F172A]/30">
+      <section className="bg-[#0F172A]/30 py-12 sm:py-16">
         <div className="container mx-auto px-4 sm:px-6">
-          <h3 className="text-3xl font-bold text-center mb-12">Results you can take to the board.</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h3 className="mb-12 text-center text-3xl font-bold">Results you can take to the board.</h3>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               { metric: 'Days', desc: 'Audit prep in days, not weeks.' },
               { metric: '>95%', desc: 'On-time DSAR SLA' },
               { metric: 'Lower Risk', desc: 'Change risk with canary & approvals' },
               { metric: 'One Pane', desc: 'Privacy, Legal, Security & Business' }
             ].map((item, index) => (
-              <Card key={index} className="bg-[#0F172A]/50 backdrop-blur-md border-white/10 text-center">
+              <Card key={index} className="border-white/10 bg-[#0F172A]/50 text-center backdrop-blur-md">
                 <CardContent className="p-6">
-                  <div className="text-2xl font-bold text-[#F47F21] mb-2">{item.metric}</div>
+                  <div className="mb-2 text-2xl font-bold text-[#F47F21]">{item.metric}</div>
                   <p className="text-sm text-gray-300">{item.desc}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="mt-8 text-center">
             <Button variant="outline">
-              <ExternalLink className="w-4 h-4 mr-2" />
+              <ExternalLink className="mr-2 h-4 w-4" />
               See a sample report
             </Button>
           </div>
@@ -1710,8 +1711,8 @@ const Services = () => {
       {/* FAQ */}
       <section id="faq" className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6">
-          <h3 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h3>
-          <div className="max-w-3xl mx-auto space-y-6">
+          <h3 className="mb-12 text-center text-3xl font-bold">Frequently Asked Questions</h3>
+          <div className="mx-auto max-w-3xl space-y-6">
             {[
               {
                 q: 'Do you operate on our tenant?',
@@ -1734,9 +1735,9 @@ const Services = () => {
                 a: 'Data-minimized engagement; evidence stays in your systems unless agreed.'
               }
             ].map((faq, index) => (
-              <Card key={index} className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+              <Card key={index} className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
                 <CardContent className="p-6">
-                  <h4 className="font-bold mb-2">{faq.q}</h4>
+                  <h4 className="mb-2 font-bold">{faq.q}</h4>
                   <p className="text-gray-300">{faq.a}</p>
                 </CardContent>
               </Card>
@@ -1746,28 +1747,29 @@ const Services = () => {
       </section>
 
       {/* Conversion Block */}
-      <section className="py-12 sm:py-16 md:py-20 bg-[#0F172A]/30">
+      <section className="bg-[#0F172A]/30 py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h3 className="text-3xl font-bold mb-6">Talk to an expert</h3>
+              <h3 className="mb-6 text-3xl font-bold">Talk to an expert</h3>
               <ul className="space-y-3 text-gray-300">
                 <li className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
+                  <CheckCircle className="h-5 w-5 text-green-400" />
                   <span>Personalized agenda</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
+                  <CheckCircle className="h-5 w-5 text-green-400" />
                   <span>Readiness review</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
+                  <CheckCircle className="h-5 w-5 text-green-400" />
                   <span>Timeline & next steps</span>
                 </li>
               </ul>
             </div>
+            <ContactForm/>
 
-            <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+            {/* <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
@@ -1801,7 +1803,7 @@ const Services = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium mb-2">Service Interest</label>
+                    <label className="mb-2 block text-sm font-medium">Service Interest</label>
                     <div className="space-y-2">
                       {['Assessment', 'Managed Governance', 'Audit Readiness'].map(service => (
                         <div key={service} className="flex items-center space-x-2">
@@ -1837,14 +1839,14 @@ const Services = () => {
                   </Button>
                 </form>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </section>
 
       {/* Contact Form Dialog */}
       <Dialog open={showContactForm} onOpenChange={setShowContactForm}>
-        <DialogContent className="bg-[#0F172A] border-white/10">
+        <DialogContent className="border-white/10 bg-[#0F172A]">
           <DialogHeader>
             <DialogTitle>Talk to an Expert</DialogTitle>
           </DialogHeader>
