@@ -29,6 +29,12 @@ const ContactForm = ({ className }: ContactFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const today = new Date().toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+
     const templateParams = {
       name: formData.name,
       email: formData.email,
@@ -36,6 +42,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
       role: formData.role,
       message: formData.message,
       serviceInterest: formData.serviceInterest.join(", "),
+      today,
     };
 
     try {
@@ -46,6 +53,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
         'EshlqpZ1b4Shzy4L1'
       );
 
+      
       setSubmitSuccess(true);
       setFormData({
         name: "",
@@ -72,20 +80,20 @@ const ContactForm = ({ className }: ContactFormProps) => {
       transition={{ duration: 0.8, delay: 0.4 }}
       className={className}
     >
-      <Card className="bg-[#0F172A]/50 backdrop-blur-md border-white/10">
+      <Card className="border-white/10 bg-[#0F172A]/50 backdrop-blur-md">
         <CardContent className="p-8">
-          <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
+          <h2 className="mb-6 text-2xl font-bold">Send us a Message</h2>
           
           {submitSuccess ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12"
+              className="py-12 text-center"
             >
-              <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-10 h-10 text-green-400" />
+              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-500/20">
+                <CheckCircle className="h-10 w-10 text-green-400" />
               </div>
-              <h3 className="text-2xl font-bold mb-2 text-green-400">Message Sent!</h3>
+              <h3 className="mb-2 text-2xl font-bold text-green-400">Message Sent!</h3>
               <p className="text-gray-300">
                 Thank you for reaching out. We'll get back to you within 24 hours.
               </p>
@@ -95,7 +103,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
               <div className="grid grid-cols-2 gap-4">
                 <Input
                   placeholder="Name"
-                  className="bg-white/5 border-white/10"
+                  className="border-white/10 bg-white/5"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   required
@@ -103,7 +111,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
                 <Input
                   type="email"
                   placeholder="Email"
-                  className="bg-white/5 border-white/10"
+                  className="border-white/10 bg-white/5"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   required
@@ -112,14 +120,14 @@ const ContactForm = ({ className }: ContactFormProps) => {
               <div className="grid grid-cols-2 gap-4">
                 <Input
                   placeholder="Company"
-                  className="bg-white/5 border-white/10"
+                  className="border-white/10 bg-white/5"
                   value={formData.company}
                   onChange={(e) => setFormData({...formData, company: e.target.value})}
                   required
                 />
                 <Input
                   placeholder="Role"
-                  className="bg-white/5 border-white/10"
+                  className="border-white/10 bg-white/5"
                   value={formData.role}
                   onChange={(e) => setFormData({...formData, role: e.target.value})}
                   required
@@ -127,7 +135,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2">Service Interest</label>
+                <label className="mb-2 block text-sm font-medium">Service Interest</label>
                 <div className="space-y-2">
                   {['Assessment', 'Managed Governance', 'Audit Readiness'].map(service => (
                     <div key={service} className="flex items-center space-x-2">
@@ -149,7 +157,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
               <Textarea
                 placeholder="Tell us about your current challenges..."
-                className="bg-white/5 border-white/10"
+                className="border-white/10 bg-white/5"
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
                 rows={3}
@@ -162,7 +170,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
               >
                 {isSubmitting ? (
                   <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    <div className="mr-2 h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
                     Sending...
                   </>
                 ) : (
